@@ -85,6 +85,8 @@ WorkerManager::WorkerManager()
 	this->Init_Emp();
 	
 }
+
+
 WorkerManager::~WorkerManager()
 {
 	//ÓÅ»¯
