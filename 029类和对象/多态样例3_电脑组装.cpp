@@ -69,14 +69,19 @@ class LenovoMemoryModule :public MemoryModule
 
 class Computer
 {
+private:
+	CPU* m_c;
+	VideoCard* m_vc;
+	MemoryModule* m_mem;
 public:
 	//初始化
 	Computer(CPU* c, VideoCard* vc, MemoryModule* mem)
+		//父类指针指向子类对象
 	{
 		m_c = c;
 		m_vc = vc;
 		m_mem = mem;
-		//父类指针指向子类对象
+		
 	}
 	~Computer()
 	{
@@ -105,16 +110,13 @@ public:
 		m_vc->display();
 		m_mem->storage(); 
 	}
-private:
-	CPU* m_c;
-	VideoCard* m_vc;
-	MemoryModule* m_mem;
+
 };
 int main()
 {
 	//第一台电脑
 	cout << "第一台电脑" << endl;
-	CPU* intelCpu = new IntelCPU;
+	CPU* intelCpu = new IntelCPU;//父类指针指向子类对象
 	VideoCard* intelVC = new IntelVideoCard;
 	MemoryModule* intelMem = new IntelMemoryModule;
 	//可以在Computer的析构函数中释放这三块堆区空间
